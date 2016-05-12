@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+apply plugin: "cn.jiajixin.nuwa"
+
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.example.frank.mysticklayout"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+
+    }
+    productFlavors {
+        qihoo {
+        }
+        xiaomi {
+        }
+    }
+
+}
+
+nuwa {
+    //括号里是Application类以及要排除Application父类
+    excludeClass = ['com/example/frank/mysticklayout/MyApplication.class']
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.android.support:design:23.2.0'
+    compile 'cn.jiajixin.nuwa:nuwa:1.0.0'
+}
+
+
